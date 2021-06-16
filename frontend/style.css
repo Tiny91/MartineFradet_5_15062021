@@ -1,0 +1,27 @@
+header{
+    background-color: #f3e9f1;
+}
+
+h1{
+    margin: 30px
+}
+
+.card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px,
+}
+
+.card-body{
+    background-color: #f3e9f1;        
+}
+
+.price{
+    color: #a767b9;
+    font-weight: 600;
+}
+
+
+
+
+
