@@ -1,16 +1,16 @@
 
-
 (async () => {
     const productId =  await getProductId()
     const cameraData = await fetchDataCamera(productId)
     cameraDataDisplay(cameraData)
+    console.log (cameraData)
+    
 })()
 
 function getProductId() {
    productId = new URL(window.location.href).searchParams.get('id');
    return productId;  
-}
-    
+}    
     
  function fetchDataCamera(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
@@ -22,23 +22,20 @@ function getProductId() {
 }
 
 function cameraDataDisplay(cameraData){
-    document.querySelector(".container").innerHTML +=
-        `
-        <div class= "card col">
-            <div class="card-body">
-                <img src="${cameraData.imageUrl}"class ="card-img-top"/>
-                <h5 class= "card-title text-center"> ${cameraData.name}</h5>
-                <p class= "card-text">${cameraData.description}</p>
-                <div class = "col">
-                    <h6> choisir votre  objectif ${cameraData.lenses}</h6>
-                    <p class= " price card-text text-right">${cameraData.price/100}€</p>
-                </div>
-                <button><a href= "panier.html"> Ajouter au panier  </button>
-            </div>
-        </div>`   
+    document.getElementById("name").textContent = cameraData.name
+    document.getElementById("image").src = cameraData.imageUrl
+    document.getElementById("description").textContent = cameraData.description
+    document.getElementById("price").textContent = cameraData.price/100 +"€"
+    document.getElementById("option").textContent = cameraData.lenses
+};
+
+function setData( ){
+    const panier = {
+    ref : `${productId}`,
+    nom : document.getElementById("name").textContent,
+    prix : document.getElementById("price").textContent,
+    option : document.getElementById("option").textContent,
     };
-
-
-
+   localStorage.setItem("panier",JSON.stringify(panier));
     
-    
+}

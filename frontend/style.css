@@ -28,6 +28,14 @@ h5{
     color: #a767b9;
     font-weight: 600;
 }
+.panier{
+    background-color: #f3e9f1;
+    margin-bottom: 10px;
+    }
+
+.commande{
+    background-color: #f3e9f1; 
+}
 
 footer{
     margin-top: 20px;
