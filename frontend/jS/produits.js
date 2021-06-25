@@ -3,7 +3,7 @@
     const productId =  await getProductId()
     const cameraData = await fetchDataCamera(productId)
     cameraDataDisplay(cameraData)
-    console.log (cameraData)
+    console.log (cameraData.lenses)
     
 })()
 
@@ -22,11 +22,18 @@ function getProductId() {
 }
 
 function cameraDataDisplay(cameraData){
+    let lenses = cameraData.lenses;
+        lenses.forEach((item) => {
+            let dropdown = document.createElement("span")
+            dropdown.innerHTML += item 
+           dropdown.classList.add("dropdown-item")             
+        document.getElementById("list").appendChild(dropdown)
+        });   
     document.getElementById("name").textContent = cameraData.name
     document.getElementById("image").src = cameraData.imageUrl
     document.getElementById("description").textContent = cameraData.description
     document.getElementById("price").textContent = cameraData.price/100 +"€"
-    document.getElementById("option").textContent = cameraData.lenses
+    
 };
 
 function setData( ){
@@ -36,6 +43,12 @@ function setData( ){
     prix : document.getElementById("price").textContent,
     option : document.getElementById("option").textContent,
     };
-   localStorage.setItem("panier",JSON.stringify(panier));
+    localStorage.setItem("panier",JSON.stringify(panier));
     
 }
+//document.getElementById(button)("click" , setData)
+
+
+
+
+

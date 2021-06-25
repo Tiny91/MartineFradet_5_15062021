@@ -8,6 +8,23 @@ console.log(panier);
     document.getElementById("prix").textContent += " " + panier.prix
     document.getElementById("option").textContent += " " + panier.option;
 
+    
+// *************validation du formulaire**************
+let validBtn = document.getElementById("btn");
+
+
+validBtn.addEventListener ("click", function(){
+    for (let input of document.getElementsByClassName("input") )
+    {input.reportValidity();
+    if(!true){
+        break}
+    }
+    //alert ("commande envoyée")
+})
+
+
+
+
 
 
 const sendOrder = async()=>{  

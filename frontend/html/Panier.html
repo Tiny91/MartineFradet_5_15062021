@@ -30,7 +30,8 @@
     </header>
 
     <main class="container">
-        <section class= "row panier">
+        <!-- contenu du panier -->
+        <section class= "panier row ">
            <h2 class ="col-12 font-italic"> Votre panier</h2>
            <div class="col-12"> 
                <div class= "col-5" id="ref">reference</div> 
@@ -44,39 +45,46 @@
            </div> 
         </section>
 
-        <section class = " container row commande">
-            <h2 class ="col-12 font-italic"> Confirmer la commande</h2>
-            <form >
-                <div class = "form-group form-row">                    
-                    <div class = "col-4">
-                    <label for="prenom" > Prénom :</label> 
-                    <input type="text" class="form-control" required/> 
-                    </div> 
-                    <div class = "col-6">
-                    <label for="nom" > Nom :</label> 
-                    <input type="text" class="form-control " required/>
-                    </div>
-                    <div class = "col-6">
-                    <label for="Email" > Email :</label> 
-                    <input type="email" class="form-control " required/>
-                    </div> 
-                    <div class = "col-7">                                   
-                    <label for="adresse" > Adresse :</label> 
-                    <textarea type="text" class="form-control " required></textarea>
-                    </div>
-                    <div class = "col-6">
-                    <label for="ville" > Ville :</label> 
-                    <input type="text" class="form-control " required/>
-                    </div>
-                    <div class = "col-4">
-                    <label for="codepostal"> code postal :</label> 
-                    <input type="text" class="form-control " required/>
+        <!-- formulaire de contact -->
+        <section class = "contact container row mt-4 pt-3">
+            <h2 class = "col-12 font-italic mb-4"> Vos coordonnées</h2>
+            <form method = "post" id ="contact">
+                <div class = "form-group ml-5  ">                    
+                    <div class= "form-row ">
+                        <div class="col-6">
+                            <label for="firstname" > Prénom :</label> 
+                            <input type="text" id="firstname" class="form-control input"  required /> 
+                        </div>
+                        <div class="col-6">
+                            <label for="name" > Nom :</label> 
+                            <input type="text" id ="name" class="form-control input"  required />
+                        </div>                                              
+                        <div class="col-5">                                              
+                            <label for="email" > Email :</label> 
+                            <input type="text" id ="email" class="form-control input" pattern = '^[a-zA-Z09.-_]+[@]{1}[a-zA-Z09.-_]+[.]{1}[a-zA-Z]+$'  placeholder='jeandupont@gmail.com'required />
+                        </div>
+                        <div class = "col-7">                                   
+                            <label for="adress" > Adresse :</label> 
+                            <textarea type="text" id ="adress" class="form-control input" minlength = "1" maxlength = "100"required></textarea>
+                        </div>
+                        <div class = "col-6">
+                            <label for="city" > Ville :</label> 
+                            <input type="text" id ="city" class="form-control input"  required />
+                        </div>
+                        <div class = "col-4">
+                            <label for="zipcode"> code postal :</label> 
+                            <input type="text" id = "zipcode" class="form-control input" pattern ='^[0-9]{5}$' placeholder='01250' required />
+                        </div>
                     </div>             
                 </div>
-                <button class="btn btn-secondary" type=submit value="envoi"> Effectuer le reglement</button>
+                <!-- bouton d'envoi -->
+        <div class = "bouton mt-3 col-11 ">
+            <button class ="btn btn-secondary btn-block text-center " id="btn" type ="submit" value="envoi"> Effectuer le réglement</button>
+        </div> 
             </form>
-            
-        </section>
+        
+           
+    
     </main>
 
 
