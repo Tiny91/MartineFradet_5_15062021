@@ -22,6 +22,7 @@ function getProductId() {
 }
 
 function cameraDataDisplay(cameraData){
+    // liste des options objectif
     let lenses = cameraData.lenses;
     list = document.getElementById("list");
     lenses.forEach((item) => {
@@ -29,9 +30,10 @@ function cameraDataDisplay(cameraData){
         option.innerHTML += item                 
         list.appendChild(option);                 
         function lenseChoice() {
-            document.getElementById("option").textContent = list.options[list.selectedIndex].text;   
+            option.setAttribute('id',"option");   
         }      
-    list.addEventListener("change",lenseChoice())})
+    option.addEventListener("click",lenseChoice())
+    })
     document.getElementById("name").textContent = cameraData.name
     document.getElementById("image").src = cameraData.imageUrl
     document.getElementById("description").textContent = cameraData.description
