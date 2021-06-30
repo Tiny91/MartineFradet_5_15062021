@@ -9,6 +9,16 @@ h1{
 h5{
     margin-top: 15px;
 }
+a{
+color: white;
+}
+
+button {
+    border-radius: 10px;
+    color: white;
+    background-color: #d37f49;
+
+}
 
 .card-img-top {
     border-radius: 15px;
@@ -41,6 +51,19 @@ footer{
     margin-top: 20px;
 }
 
+.btn-secondary {
+    border-radius: 10px;
+    background-color: #c08f70;
+    }
+
+    .table
+    {background-color: white;
+    margin: 10px}
+
+    .nav-link{
+        color: #975ce7;
+        font-size: large;
+   }
 
 
 

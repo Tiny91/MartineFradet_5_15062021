@@ -17,7 +17,7 @@ const ListCamerasDisplay = async() => {
                             <p class= "card-text">${camera.description}</p>
                             <span class="text-center">
                             <button><a href= "../html/Produits.html?id=${camera._id}" > En savoir plus </a></button>
-                            <p class= " price card-text text-right">${camera.price/100}€</p>
+                            <p class=" price card-text text-right">${camera.price/100}€</p>
                             </span>
                         </div>
                     </div>`
