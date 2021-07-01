@@ -9,8 +9,8 @@
 
 function getProductId() {
    productId = new URL(window.location.href).searchParams.get('id');
-   return productId;  
-}    
+   return productId; 
+   }    
     
  function fetchDataCamera(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
@@ -21,6 +21,7 @@ function getProductId() {
     .then ((cameraData) => cameraData );
 }
 
+// affichage du produit avec ses caracteristiques
 function cameraDataDisplay(cameraData){
     // liste des options objectif
     let lenses = cameraData.lenses;
@@ -28,11 +29,7 @@ function cameraDataDisplay(cameraData){
     lenses.forEach((item) => {
         let option = document.createElement("option")
         option.innerHTML += item                 
-        list.appendChild(option);                 
-        function lenseChoice() {
-            option.setAttribute('id',"option");   
-        }      
-    option.addEventListener("click",lenseChoice())
+        list.appendChild(option);
     })
     document.getElementById("name").textContent = cameraData.name
     document.getElementById("image").src = cameraData.imageUrl
@@ -40,13 +37,12 @@ function cameraDataDisplay(cameraData){
     document.getElementById("price").textContent = cameraData.price/100 +"€"
     
 };
-
+// envoi du produit choisi dans le localStorage
 function setData( ){
     const panier = {
     ref : `${productId}`,
     nom : document.getElementById("name").textContent,
     prix : document.getElementById("price").textContent,
-    option : document.getElementById("option").textContent,
     };
     localStorage.setItem("panier",JSON.stringify(panier));
     

@@ -1,4 +1,4 @@
-
+//recuperation des produits choisis 
 let productChoice = JSON.parse(localStorage.getItem("panier"));
 console.log(productChoice);
 
@@ -6,7 +6,7 @@ console.log(productChoice);
     document.getElementById("ref").textContent =  productChoice.ref
     document.getElementById("quantite").textContent= " " + 1
     document.getElementById("prix").textContent = productChoice.prix
-    document.getElementById("option").textContent = productChoice.option;
+    
     //document.getElementById("total").textContent +=  (productChoice.prix) * 1 
 
     
@@ -23,60 +23,45 @@ sendOrder.addEventListener ("click", function(e){
     }
             // Données à envoyer     
     const contactOrder = {
-        firstname : document.getElementById("firstname").value,
-        name : document.getElementById("name").value,
+        firstName : document.getElementById("firstname").value,
+        lastName : document.getElementById("name").value,
         email : document.getElementById("email").value,
-        adress : document.getElementById("adress").value,
+        address : document.getElementById("adress").value,
         city : document.getElementById("city").value,
-        zipcode : document.getElementById("zipcode").value
+        //zipcode : document.getElementById("zipcode").value
     }
     //console.log (contactOrder);
 
-    const productOrder = Object.values(productChoice);
-   //console.log(productOrder)  ; 
+    const products = [productChoice.ref] 
+    ;
+   //console.log(products)  ; 
 
     const order = {
     contact : contactOrder,
-    panier : productOrder, 
+    products : products, 
     };
     console.log (order);
     
             // envoi des données sur le serveur
-
-            let sendData = fetch('http://localhost:3000/api/cameras/order',{
-                method: "POST",
-                headers: {'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(order),
-            });
-            sendData.then(async(response) =>{
-                try{
-                    console.log(response);
-                    let content = await response.json();
-                    console.log("content from serveur:");
-                    console.log(content);
-                }
-                catch(e){
-                    console.log(e)
-                }
-            })
-    // const sendData = {
-    //     method: "POST",
-    //     body: JSON.stringify(order),
-    //     headers: {'Content-Type': 'application/json'
-    //     }
-    // }
-    // fetch('http://localhost:3000/api/cameras/order',sendData)
-    //     .then((response) => response.json())
-    //     .then((json) => {
-    //         console.log(json)
-    //         localStorage.removeItem('panier')
-    //         window.location.href = `../html/commande.html?id=${productChoice.option}`         
-    //     })
-    //     .catch(() => {
-    //     alert(error)
-    // })
+            
+     const sendData = {
+        method: "POST",
+         body: JSON.stringify(order),
+         headers: {'Content-Type': 'application/json'
+         }
+     }
+     fetch('http://localhost:3000/api/cameras/order',sendData)
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json.orderId)
+            localStorage.removeItem('panier')
+            window.location.href = `../html/commande.html?id=${json.orderId}`         
+         })
+          .catch((error) => {
+          alert("Erreur: "+ error)
+          })
     
+
    });
     
 
