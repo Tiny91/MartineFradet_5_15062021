@@ -39,18 +39,20 @@ function cameraDataDisplay(cameraData){
 };
 // envoi du produit choisi dans le localStorage
 function setData( ){
-    const panier = {
+    let product = {
     ref : `${productId}`,
     nom : document.getElementById("name").textContent,
     prix : document.getElementById("price").textContent,
     };
-    localStorage.setItem("panier",JSON.stringify(panier));
-    
-}
+    let shopping = JSON.parse(localStorage.getItem("shopping"));
+    if (shopping){
+        shopping.push(product)
+        localStorage.setItem("shopping",JSON.stringify(shopping))
+    }
+    else{
+        let shopping = []
+        shopping.push(product)
+        localStorage.setItem("shopping",JSON.stringify(shopping))
+    }
 
-//document.getElementById(button)("click" , setData)
-
-
-
-
-
+};

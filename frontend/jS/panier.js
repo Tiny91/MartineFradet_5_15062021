@@ -1,14 +1,22 @@
 //recuperation des produits choisis 
-let productChoice = JSON.parse(localStorage.getItem("panier"));
-console.log(productChoice);
+let shopping = JSON.parse(localStorage.getItem("shopping"));
+console.log(shopping);
 
-    document.getElementById("nom").textContent =  productChoice.nom
-    document.getElementById("ref").textContent =  productChoice.ref
-    document.getElementById("quantite").textContent= " " + 1
-    document.getElementById("prix").textContent = productChoice.prix
-    
-    //document.getElementById("total").textContent +=  (productChoice.prix) * 1 
+shoppingDisplay();
 
+function shoppingDisplay(){ 
+     document.querySelector(".produit").innerHTML = shopping.map((product) =>` 
+                <tr>
+                    <th class="ref">${product.ref}</th>
+                    <td class ="nom">${product.nom}</td>
+                    <td class="prix">${product.prix}</td>
+                    <td class="quantite">1</td>
+                </tr>`            
+     )
+     .join("");
+     document.getElementById("total").textContent +=  document.querySelectorAll(".prix").value            
+};
+         
     
 // *************validation du formulaire**************
 let sendOrder = document.getElementById("btn");
@@ -32,9 +40,9 @@ sendOrder.addEventListener ("click", function(e){
     }
     //console.log (contactOrder);
 
-    const products = [productChoice.ref] 
-    ;
-   //console.log(products)  ; 
+    const products = Object.values(shopping).map((product) => {return product.ref}
+    );
+   console.log(products)  ; 
 
     const order = {
     contact : contactOrder,
@@ -54,7 +62,7 @@ sendOrder.addEventListener ("click", function(e){
         .then((response) => response.json())
         .then((json) => {
             console.log(json.orderId)
-            localStorage.removeItem('panier')
+            localStorage.removeItem('shopping')
             window.location.href = `../html/commande.html?id=${json.orderId}`         
          })
           .catch((error) => {
@@ -64,13 +72,3 @@ sendOrder.addEventListener ("click", function(e){
 
    });
     
-
-
-
-
-
-
- 
-
-
-
