@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel ="stylesheet" href="../style.css"/>
-    <title>Votre choix - Orinoco</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel ="stylesheet" href="../style.css"/>
+        <title>Votre choix - Orinoco</title>
+    </head>
 
-<body>
-    <header class =" row ">
-        <div class="container">
-            <nav class = " col navbar navbar-expand "> 
-                <a href="index.html"><img class = "col-6 navbar-brand" src="../../backend/images/logo.png"></a>
-                <div class= "col-6" >
-                    <a class=" nav-link text-right" href="Panier.html">Panier</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class ="container ">
-        <div class = "produit">
-            <div class= "card col">
-                <div class="card-body">
-                    <img src=""class ="card-img-top" id="image"/>
-                    <h5 class= "card-title text-center" id="name"> </h5>
-                    <p class= "card-text" id= "description"></p>
-                    
-                <!-- Choix de l'objectif -->
-                        <form class="dropdown">
-                            <p> Choisir votre objectif</p>
-                            <select id ="list" >
-                            <option class= "dropdown-item" ></option> 
-                            </select>
-                        </form>
-
-                    <div class = "col">
-                        <p class= "card-text text-right" id="price"></p>
+    <body>
+        <header class =" row ">
+            <div class="container">
+                <nav class = " col navbar navbar-expand "> 
+                    <a href="index.html"><img class = "col-6 navbar-brand" alt="logo" src="../../backend/images/logo.png"></a>
+                    <div class= "col-6" >
+                        <a class=" nav-link text-right" href="Panier.html">Panier</a>
                     </div>
-                </div>
-            </div>         
-        </div>
+                </nav>
+            </div>
+        </header>
 
-        <div class=" btn btn-secondary btn-block ">
-            <a href="Panier.html"><button  onclick="setData()">Ajouter au panier</button></a>
-        </div>    
-    </main>
+        <main class ="container ">
+            <div class = "produit pl-4 pt-4">
+                <!-- carte produit -->
+                <div class= "card col">
+                    <div class="card-body">
+                        <img src="../../backend/images/" alt="" class ="card-img-top" id="image"/>
+                        <h5 class= "card-title text-center" id= "name"> </h5>
+                        <p class= "card-text" id= "description"></p>
+                            <!-- Choix de l'objectif -->
+                        <form class="dropdown">
+                            <div> Choisir votre objectif :
+                                <select id ="list" > 
+                                </select>
+                            </div>
+                        </form>
+                        <div class = "col">
+                            <p class= "price card-text text-right" id="price"></p>
+                        </div>
+                    </div>
+                      
+                </div> 
+                <!-- Bouton d'ajout au panier -->
+                <div class= "btn btn-block">
+                    <a href="Panier.html" class="button btn btn-secondary" onclick="setData()">Ajouter au panier</a>
+                </div>   
+            </div>
+        </main>
 
-    <footer class="jumbotron text-center h6 font-italic">
-        Projet 5 - OpenClassrooms -Developpeur Web
-    </footer>
+        <footer class="jumbotron text-center h6 font-italic">
+                Projet 5 - OpenClassrooms -Developpeur Web
+        </footer>
 
+        <script src="../jS/produits.js"></script>
 
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    
-    <script src="../jS/produits.js"></script>
+    </body>
 
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-</body>
 </html>

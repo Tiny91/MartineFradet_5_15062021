@@ -1,74 +1,88 @@
-//recuperation des produits choisis 
-let shopping = JSON.parse(localStorage.getItem("shopping"));
-console.log(shopping);
+// Affichage du panier , des coordonnées et commande
 
+    //recuperation des produits choisis 
+let shopping = JSON.parse(localStorage.getItem("shopping"));
+//console.log(shopping);
+
+// ***************Affichage du panier***************
 shoppingDisplay();
 
 function shoppingDisplay(){ 
      document.querySelector(".produit").innerHTML = shopping.map((product) =>` 
-                <tr>
-                    <th class="ref">${product.ref}</th>
-                    <td class ="nom">${product.nom}</td>
-                    <td class="prix">${product.prix}</td>
-                    <td class="quantite">1</td>
-                </tr>`            
+        <tr>
+            <th class="ref">${product.ref}</th>
+            <td class ="nom">${product.nom}</td>
+            <td class="prix">${product.prix}</td>
+            <td class=" text-right quantite">1</td>
+        </tr>`            
      )
-     .join("");
-     document.getElementById("total").textContent +=  document.querySelectorAll(".prix").value            
+     .join("");                
 };
-         
-    
-// *************validation du formulaire**************
+
+    // Calcul et affichage prix total
+totalPrice();
+
+function totalPrice(){
+    const stringPrix = Object.values(shopping).map((product) =>{
+        return product.prix});
+    //console.log(stringPrix);
+    let prix = stringPrix.map(function(x){
+        return parseInt(x,10) } );
+    //console.log(prix);
+    const ajoutPrices = (accumulator,currentValue)=> accumulator + currentValue;
+    let total = prix.reduce(ajoutPrices)
+    document.getElementById("total").innerHTML += " " + total + "€"
+};
+
+
+// *************validation et envoi du panier avec le formulaire*************
 let sendOrder = document.getElementById("btn");
 
-
 sendOrder.addEventListener ("click", function(e){
-    e.preventDefault()    
+    e.preventDefault()
+
             //validation des champs du formulaire
-    for (let input of document.getElementsByClassName("input") )
+    for (let input of document.getElementsByClassName("input"))
     {input.reportValidity();
     if(!true){ break}
-    }
+    };
+
             // Données à envoyer     
     const contactOrder = {
         firstName : document.getElementById("firstname").value,
         lastName : document.getElementById("name").value,
         email : document.getElementById("email").value,
         address : document.getElementById("adress").value,
-        city : document.getElementById("city").value,
-        //zipcode : document.getElementById("zipcode").value
+        city : document.getElementById("zipcode").value +" "+ document.getElementById("city").value,
     }
-    //console.log (contactOrder);
-
-    const products = Object.values(shopping).map((product) => {return product.ref}
+    const products = Object.values(shopping).map((product) => {
+        return product.ref}
     );
-   console.log(products)  ; 
-
-    const order = {
-    contact : contactOrder,
-    products : products, 
-    };
-    console.log (order);
     
-            // envoi des données sur le serveur
+    const order = {
+        contact : contactOrder,
+        products : products, 
+    };
+    //console.log (order);
+    
+            // ******envoi des données sur le serveur*******
             
-     const sendData = {
+    const sendData = {
         method: "POST",
-         body: JSON.stringify(order),
-         headers: {'Content-Type': 'application/json'
-         }
-     }
-     fetch('http://localhost:3000/api/cameras/order',sendData)
+        body: JSON.stringify(order),
+        headers: {'Content-Type': 'application/json'
+        }  
+    }
+    fetch('http://localhost:3000/api/cameras/order',sendData)
         .then((response) => response.json())
         .then((json) => {
             console.log(json.orderId)
+            // suppression des données dans le localstorage
             localStorage.removeItem('shopping')
-            window.location.href = `../html/commande.html?id=${json.orderId}`         
-         })
-          .catch((error) => {
-          alert("Erreur: "+ error)
-          })
-    
-
-   });
-    
+            // lien vers la page de confirmation de commande
+            window.location.href = `../html/commande.html?id=${json.orderId}` 
+        })
+        .catch((error) => {
+            alert("Erreur:" + error)
+        })  
+});

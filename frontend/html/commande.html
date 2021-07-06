@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel ="stylesheet" href="../style.css"/>
-    <title>Commande confirmée - Orinoco</title>
-</head>
-<body>
-    <header class =" row ">
-        <div class="container">
-            <nav class = " col navbar navbar-expand "> 
-                <img class = "col-5 navbar-brand" src="../../backend/images/logo.png">
-            </nav>
-        </div>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel ="stylesheet" href="../style.css"/>
+        <title>Commande confirmée - Orinoco</title>
+    </head>
 
-    <main class="container">
-        <div id ="orderid"></div></br>
-        <a href="index.html"><button class="btn btn-secondary ">retour à l'accueil</button></a>
+    <body>
+        <header class =" row ">
+            <div class="container">
+                <nav class = " col navbar navbar-expand "> 
+                    <img class = "col-5 navbar-brand" alt="logo" src="../../backend/images/logo.png">
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class = "container my-5">
+                <span>Nous vous remercions pour votre commande.<br/>Elle sera traitée dans les meilleurs délais</span> 
+            <div class="py-5" id ="orderid"></div>
+            <a href="index.html" class="btn btn-secondary">retour à l'accueil</a>
+            </div>
+        </main>
+        <script src="../jS/commande.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         
-    </main>
-    <script src="../jS/commande.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    
+        
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
+    </body>
+
 </html>

@@ -2,22 +2,35 @@ header{
     background-color: #f3e9f1;
     margin-bottom: 20px;
 }
-
+footer{
+    margin-top: 20px;
+}
 h1{
     margin: 30px
 }
-h5{
-    margin-top: 15px;
+.nav-link{
+    color: #9158f6;
+    font-size: large;
+    font-weight: bold;
 }
+
+h5{
+    margin-top: 20px;
+}
+
 a{
 color: white;
+text-decoration: none;
 }
 
 button {
     border-radius: 10px;
-    color: white;
     background-color: #d37f49;
-
+    color: white;
+    padding: 5px 25px 
+}
+button:hover{
+    background-color: #b7708f;
 }
 
 .card-img-top {
@@ -25,9 +38,9 @@ button {
 }
 
 .card{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px,
+    padding: 1px ;
+    margin: 8px;
+    background-color:#b7708f
 }
 
 .card-body{
@@ -35,35 +48,42 @@ button {
 }
 
 .price{
-    color: #a767b9;
-    font-weight: 600;
-}
-.panier{
-    background-color: #f3e9f1;
-    margin-bottom: 10px;
-    }
-
-.contact{
-    background-color: #f3e9f1; 
-}
-
-footer{
-    margin-top: 20px;
+    font-size: large;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .btn-secondary {
     border-radius: 10px;
     background-color: #c08f70;
-    }
+}
+.btn-secondary:hover{
+    background-color: #b7708f;
+}
 
-    .table
-    {background-color: white;
-    margin: 10px}
+.table{
+    background-color: white;
+    margin: 20px;
+}
 
-    .nav-link{
-        color: #975ce7;
-        font-size: large;
-   }
+.panier{
+    background-color: #f3e9f1;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.contact{
+    background-color: #f3e9f1;  
+}
+
+label{
+    font-style: italic;
+}
+
+
+   
+
+    
 
 
 

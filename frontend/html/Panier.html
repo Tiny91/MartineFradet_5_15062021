@@ -1,103 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel ="stylesheet" href="../style.css"/>
-    <title>Votre panier - Orinoco</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel ="stylesheet" href="../style.css"/>
+        <title>Votre panier - Orinoco</title>
+    </head>
 
-</head>
-<body>
-    <header class =" row ">
-        <div class="container">
-            <nav class = " col navbar navbar-expand "> 
-                <a href="index.html"><img class = "col-6 navbar-brand" src="../../backend/images/logo.png"></a>
-                <div class= "col-6" >
-                    <a class=" nav-link text-right" href="Panier.html">Panier</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <body>
+        <header class =" row ">
+            <div class="container">
+                <nav class = " col navbar navbar-expand "> 
+                    <img class = "col-6 navbar-brand" alt="logo" src="../../backend/images/logo.png">
+                    <div class= "col-6" >
+                        <a class=" nav-link text-right" href="index.html">Ajouter un produit</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
-    <main class="container">
-        <!-- contenu du panier -->
-        <section class= "panier container row ">
-            <h2 class ="col-12 font-italic"> Votre panier</h2>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Reference</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">Quantité</th>
-                </tr>
-                </thead>
-                <tbody class="produit">
-                    <tr></tr>
-                </tbody>
-            </table>
-            <div class="col-10 text-right" id="total">Total:</div>                   
-        </section>
+        <main class="container">
+            <!-- contenu du panier -->
+            <section class="panier container row ">
+                <h2 class="col-12 font-italic"> Votre panier </h2>
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col" class="text-right">Quantité</th>
+                    </tr>
+                    </thead>
+                    <tbody class="produit">
+                    </tbody>
+                </table>
+                <div class=" font-italic col-11 text-right font-weight-bold" id="total">Total : </div>                   
+            </section>
 
-        <!-- formulaire de contact -->
-        <section class = "contact container row mt-4 pt-3">
-            <h2 class = "col-12 font-italic mb-4"> Vos coordonnées</h2>
-            <form method = "post" id ="contact">
-                <div class = "form-group ml-5  ">                    
-                    <div class= "form-row ">
-                        <div class="col-6">
+            <!-- Coordonnées -->
+            <section class = "contact container row mt-4 pt-3 pb-4">
+                <h2 class = "col-12 font-italic mb-4"> Vos coordonnées</h2>
+                <!-- formulaire de contact -->
+                <form method = "post" id ="contact">
+                    <div class = "form-group ml-3 form-row "> 
+                        <div class="col-6 pr-3 pb-3">
                             <label for="firstname" > Prénom :</label> 
                             <input type="text" id="firstname" class="form-control input"  required /> 
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 pb-3">
                             <label for="name" > Nom :</label> 
                             <input type="text" id ="name" class="form-control input"  required />
                         </div>                                              
-                        <div class="col-5">                                              
+                        <div class="col-5 pr-3 pb-3">                        
                             <label for="email" > Email :</label> 
-                            <input type="text" id ="email" class="form-control input" pattern = '^[a-zA-Z09.-_]+[@]{1}[a-zA-Z09.-_]+[.]{1}[a-zA-Z]+$'  placeholder='jeandupont@gmail.com'required />
+                            <input type="text" id ="email" class="form-control input" pattern = '^[a-zA-Z09.-_]+[@]{1}[a-zA-Z09.-_]+[.]{1}[a-zA-Z]+$'  placeholder='jeandupont@gmail.com' required />
                         </div>
-                        <div class = "col-7">                                   
+                        <div class = "col-7 pb-3">                                   
                             <label for="adress" > Adresse :</label> 
-                            <textarea type="text" id ="adress" class="form-control input" minlength = "1" maxlength = "100"required></textarea>
+                            <textarea id ="adress" class="form-control input" minlength = "1" maxlength = "100" required></textarea>
                         </div>
-                        <div class = "col-6">
+                        <div class = "col-6 pr-3 pb-3">
                             <label for="city" > Ville :</label> 
                             <input type="text" id ="city" class="form-control input"  required />
                         </div>
                         <div class = "col-4">
                             <label for="zipcode"> code postal :</label> 
                             <input type="text" id = "zipcode" class="form-control input" pattern ='^[0-9]{5}$' placeholder='01250' required />
-                        </div>
-                    </div>             
-                </div>
+                        </div>      
+                    </div>
+                </form>
                 <!-- bouton d'envoi -->
-        <div class = "bouton mt-3 col-11 ">
-            <button class ="btn btn-secondary btn-block text-center " id="btn" type ="submit" value="envoi"> Effectuer le réglement</button>
-        </div> 
-            </form>
-        
-           
+                <div class = " container mt-3 col-11 ">
+                    <button class ="btn btn-secondary btn-block " id="btn" type ="submit" value="envoi"> Effectuer le réglement</button>
+                </div> 
+            </section>
+        </main>
+
+        <footer class="jumbotron text-center h6 font-italic">
+            Projet 5 - OpenClassrooms -Developpeur Web
+        </footer>
+
+        <script src="../jS/panier.js"></script>
+       
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
-    </main>
+    </body>
 
-
-
-    <footer class="jumbotron text-center h6 font-italic">
-        Projet 5 - OpenClassrooms -Developpeur Web
-    </footer>
-
-    <script src="../jS/panier.js"></script>
-        
-        
-            
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
-</body>
 </html>
