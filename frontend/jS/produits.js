@@ -14,15 +14,16 @@ function getProductId() {
    return productId; 
 };   
 
-// Récuperation des données du produits grâce à l'ID
+// Récuperation des données du produit grâce à l'ID
 function fetchDataCamera(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
     .catch((error) => {
         console.log(error)
     })
     .then ((res) => res.json())
-    .then ((cameraData) => cameraData );
-};
+    //.then(json => console.log(json))
+    .then ((cameraData) => cameraData )
+    };
 
 // affichage du produit 
 function cameraDataDisplay(cameraData){

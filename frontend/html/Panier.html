@@ -37,7 +37,8 @@
                     <tbody class="produit">
                     </tbody>
                 </table>
-                <div class=" font-italic col-11 text-right font-weight-bold" id="total">Total : </div>                   
+                <div class=" font-italic col-11 text-right font-weight-bold" id="total">Total : 
+                </div>         
             </section>
 
             <!-- Coordonnées -->
@@ -48,15 +49,15 @@
                     <div class = "form-group ml-3 form-row "> 
                         <div class="col-6 pr-3 pb-3">
                             <label for="firstname" > Prénom :</label> 
-                            <input type="text" id="firstname" class="form-control input"  required /> 
+                            <input type="text" id="firstname" class="form-control input" required > 
                         </div>
                         <div class="col-6 pb-3">
                             <label for="name" > Nom :</label> 
-                            <input type="text" id ="name" class="form-control input"  required />
+                            <input type="text" id ="name" class="form-control input" required >
                         </div>                                              
                         <div class="col-5 pr-3 pb-3">                        
                             <label for="email" > Email :</label> 
-                            <input type="text" id ="email" class="form-control input" pattern = '^[a-zA-Z09.-_]+[@]{1}[a-zA-Z09.-_]+[.]{1}[a-zA-Z]+$'  placeholder='jeandupont@gmail.com' required />
+                            <input type="email" id ="email" class="form-control input" pattern = '^[a-zA-Z09.-_]+[@]{1}[a-zA-Z09.-_]+[.]{1}[a-zA-Z]+$'  placeholder='jeandupont@gmail.com' required >
                         </div>
                         <div class = "col-7 pb-3">                                   
                             <label for="adress" > Adresse :</label> 
@@ -64,18 +65,19 @@
                         </div>
                         <div class = "col-6 pr-3 pb-3">
                             <label for="city" > Ville :</label> 
-                            <input type="text" id ="city" class="form-control input"  required />
+                            <input type="text" id ="city" class="form-control input" required >
                         </div>
                         <div class = "col-4">
                             <label for="zipcode"> code postal :</label> 
-                            <input type="text" id = "zipcode" class="form-control input" pattern ='^[0-9]{5}$' placeholder='01250' required />
-                        </div>      
+                            <input type="text" id = "zipcode" class="form-control input" pattern ='^[0-9]{5}$' placeholder='01250' required >
+                        </div>
+                        <!-- bouton d'envoi -->
+                        <div class = " container mt-3 col-11 ">
+                            <button class ="btn btn-secondary btn-block " id="btn" type ="submit" > Effectuer le réglement</button>
+                        </div>       
                     </div>
                 </form>
-                <!-- bouton d'envoi -->
-                <div class = " container mt-3 col-11 ">
-                    <button class ="btn btn-secondary btn-block " id="btn" type ="submit" value="envoi"> Effectuer le réglement</button>
-                </div> 
+                
             </section>
         </main>
 

@@ -2,7 +2,7 @@
 
     //recuperation des produits choisis 
 let shopping = JSON.parse(localStorage.getItem("shopping"));
-//console.log(shopping);
+console.log(shopping);
 
 // ***************Affichage du panier***************
 shoppingDisplay();
@@ -32,6 +32,7 @@ function totalPrice(){
     const ajoutPrices = (accumulator,currentValue)=> accumulator + currentValue;
     let total = prix.reduce(ajoutPrices)
     document.getElementById("total").innerHTML += " " + total + "€"
+    localStorage.setItem("total",JSON.stringify(total))
 };
 
 
@@ -39,15 +40,15 @@ function totalPrice(){
 let sendOrder = document.getElementById("btn");
 
 sendOrder.addEventListener ("click", function(e){
-    e.preventDefault()
+        //validation des champs du formulaire
+    let form = document.getElementById("contact");
+    if (form.checkValidity() === false){
+        e.preventDefault();
+        e.stopPropagation();
+    return alert("merci de remplir chaque champ du formulaire comme indiqué")
+    }
 
-            //validation des champs du formulaire
-    for (let input of document.getElementsByClassName("input"))
-    {input.reportValidity();
-    if(!true){ break}
-    };
-
-            // Données à envoyer     
+        // Données à envoyer     
     const contactOrder = {
         firstName : document.getElementById("firstname").value,
         lastName : document.getElementById("name").value,
@@ -63,7 +64,7 @@ sendOrder.addEventListener ("click", function(e){
         contact : contactOrder,
         products : products, 
     };
-    //console.log (order);
+    console.log (order);
     
             // ******envoi des données sur le serveur*******
             
@@ -80,7 +81,7 @@ sendOrder.addEventListener ("click", function(e){
             // suppression des données dans le localstorage
             localStorage.removeItem('shopping')
             // lien vers la page de confirmation de commande
-            window.location.href = `../html/commande.html?id=${json.orderId}` 
+           window.location.href = `../html/commande.html?id=${json.orderId}` 
         })
         .catch((error) => {
             alert("Erreur:" + error)
