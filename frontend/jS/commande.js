@@ -8,7 +8,7 @@ document.getElementById("total").innerHTML += `Nous vous confirmons la réceptio
 //recuperation de l'orderId dans l'URL
 
 function getOrderId() {
-    orderId = new URL(window.location.href).searchParams.get('id');
+    orderId = new URL(window.location.href).searchParams.get('ref');
 }
 getOrderId();
 
