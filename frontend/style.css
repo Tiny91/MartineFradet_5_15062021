@@ -23,59 +23,52 @@ color: white;
 text-decoration: none;
 }
 
-button {
+button { 
+    padding: 5px 25px  
+}
+
+.btn-secondary {
     border-radius: 10px;
     background-color: #d37f49;
-    color: white;
-    padding: 5px 25px 
 }
-button:hover{
+.btn-secondary:hover{
     background-color: #b7708f;
 }
-
+ 
+/* cartes des produits */
 .card-img-top {
-    border-radius: 15px;
+    border-radius: 10px;
 }
-
 .card{
     padding: 1px ;
     margin: 8px;
     background-color:#b7708f
 }
-
 .card-body{
     background-color: #f3e9f1;        
 }
-
 .price{
     font-size: large;
     font-weight: 500;
     margin-bottom: 20px;
 }
 
-.btn-secondary {
-    border-radius: 10px;
-    background-color: #c08f70;
-}
-.btn-secondary:hover{
-    background-color: #b7708f;
-}
-
-.table{
-    background-color: white;
-    margin: 20px;
-}
-
+/* recap panier */
 .panier{
     background-color: #f3e9f1;
     padding: 20px;
     margin-bottom: 10px;
 }
+.table{
+    background-color: white;
+    margin: 20px;
+}
 
+ /*section contact*/
 .contact{
     background-color: #f3e9f1;  
 }
-
+/* nom des champs contact */
 label{
     font-style: italic;
 }

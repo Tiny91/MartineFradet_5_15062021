@@ -17,13 +17,13 @@ function getProductId() {
 // Récuperation des données du produit grâce à l'ID
 function fetchDataCamera(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
-    .catch((error) => {
-        console.log(error)
-    })
     .then ((res) => res.json())
     //.then(json => console.log(json))
     .then ((cameraData) => cameraData )
-    };
+    .catch((error) => {
+        console.log(error)
+    });
+};
 
 // affichage du produit 
 function cameraDataDisplay(cameraData){
@@ -56,7 +56,7 @@ function setData( ){
     }
     // si panier vide
     else{
-        let shopping = []
+        shopping = []
         shopping.push(product)
         localStorage.setItem("shopping",JSON.stringify(shopping))
     }

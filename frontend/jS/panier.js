@@ -34,6 +34,16 @@ function totalPrice(){
     document.getElementById("total").innerHTML += " " + total + "€"
     localStorage.setItem("total",JSON.stringify(total))
 };
+ 
+    // Vider le panier//
+ let clearShopping = document.getElementById("clear");
+
+ clearShopping.addEventListener ("click",function(){
+    document.querySelector(".produit").innerHTML = "";
+    document.getElementById("total").innerHTML = "Total :" ;
+    localStorage.removeItem('shopping');
+    localStorage.removeItem("total")
+ });
 
 
 // *************validation et envoi du panier avec le formulaire*************
@@ -92,6 +102,7 @@ sendOrder.addEventListener ("click", function(e){
         contact : contactOrder,
         products : products, 
     };
+
     console.log (order);
     
             // ******envoi des données sur le serveur*******
@@ -107,13 +118,10 @@ sendOrder.addEventListener ("click", function(e){
           .then((response) => response.json())
           .then((json) => {
                 console.log(json.orderId)
-               //suppression des données dans le localstorage
-                localStorage.removeItem('shopping')
-              // lien vers la page de confirmation de commande
+                // lien vers la page de confirmation de commande
                 window.location.href = `../html/commande.html?ref=${json.orderId}` 
           })
           .catch((error) => {
               alert("Erreur:" + error)
           }) 
-          console.log(fet) 
 });
